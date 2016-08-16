@@ -31,7 +31,7 @@ postgresql-cluster-prepared:
     - user: {{ postgres.prepare_cluster.user }}
     - unless:
       - {{ postgres.prepare_cluster.test }}
-    - require:
+    - onchanges:
       - pkg: postgresql-installed
     - env:
 {% for name, value in postgres.prepare_cluster.env.items() %}

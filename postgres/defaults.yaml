@@ -6,7 +6,7 @@ postgres:
   pkgs_extra:
   python: python-psycopg2
   service: postgresql
-  conf_dir: /var/lib/pgsql/data
+  conf_dir: /var/lib/pgsql/9.3/data
   use_upstream_repo: False
   users: {}
   acls: []
@@ -26,5 +26,5 @@ postgres:
     user: root
     command: service postgresql initdb
     test: test -f /var/lib/pgsql/data/PG_VERSION
-    env: {}
+    env: {PG_VERSION: 9.3}
 
